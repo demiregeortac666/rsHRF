@@ -18,7 +18,7 @@ def spm_read_vols(mapped_image_volume):
     """
     Read in entire image volumes
     """
-    data = mapped_image_volume.get_data()
+    data = np.asanyarray(mapped_image_volume.dataobj)
     data = data.flatten(order='F')
     return data
 
@@ -147,7 +147,7 @@ def spm_write_vol(image_volume_info, image_voxels, image_name, file_type):
         nib.save(image_volume_info, image_name + file_type)
     else:
         file_type = '.gii'
-        data = image_voxels
+        data = np.asarray(image_voxels, dtype=np.float32)
         gi = nib.GiftiImage()
-        gi.add_gifti_data_array(nib.gifti.GiftiDataArray(image_voxels))
-        nib.gifti.giftiio.write(gi, image_name + file_type)
+        gi.add_gifti_data_array(nib.gifti.GiftiDataArray(data))
+        nib.save(gi, image_name + file_type)

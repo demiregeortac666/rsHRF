@@ -27,8 +27,8 @@ RUN apk add --no-cache zlib libjpeg-turbo-dev libpng-dev freetype-dev lcms2-dev 
 	&& pip3 install joblib \
 	&& pip3 install numpy \
 	&& pip3 install scipy==1.3.3 \
-	&& pip3 install pandas \
-	&& pip3 install pyyawt \ 
+        && pip3 install pandas \
+        && pip3 install PyWavelets \
 	&& pip3 install rsHRF \
 	&& rm -r /root/.cache \
 	&& find /usr/lib/python3.*/ -name 'tests' -exec rm -r '{}' + \

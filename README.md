@@ -4,6 +4,9 @@ Resting state HRF estimation and deconvolution.
 
 Please refer to https://github.com/compneuro-da/rsHRF for MATLAB version
 
+This Python implementation uses the [PyWavelets](https://pywavelets.readthedocs.io/) library
+for its wavelet transforms.
+
 ![BOLD HRF](https://github.com/guorongwu/rsHRF/raw/master/docs/BOLD_HRF.png)
 
 

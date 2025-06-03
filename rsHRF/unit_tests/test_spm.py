@@ -39,7 +39,9 @@ def test_spm_vol():
             if 'nii' in test_file:
                 assert type(v) == type(nib.Nifti1Image(np.asarray([]), np.eye(4)))
             elif 'gii' in test_file:
-                assert type(v) == type(nib.gifti.GiftiDataArray(np.asarray([])))
+                assert type(v) == type(
+                    nib.gifti.GiftiDataArray(np.asarray([], dtype=np.float32))
+                )
 
 def test_spm_read_vols():
     nifti = get_data('nifti')
