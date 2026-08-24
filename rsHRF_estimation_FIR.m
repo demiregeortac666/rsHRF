@@ -46,7 +46,7 @@ hrf = zeros(len_bin+1,nlag);
 Cov_E = zeros(1,nlag);
 kk=1;
 for i_lag=1:nlag
-    RR = u-i_lag; RR(RR<=0)=[];
+    RR = u-lag(i_lag); RR(RR<=0)=[];
     if ~isempty(RR)
         design = zeros(N,1);
         design(RR) = 1;
